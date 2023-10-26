@@ -8,7 +8,7 @@ export default function Login() {
 
     const handleLogin = (e)=>{
         e.preventDefault()
-        axios.post("http://localhost:8080/user/login",{email,password}).then((res)=>{
+        axios.post("https://notesapi-ng85.onrender.com/user/login",{email,password}).then((res)=>{
             console.log(res.data);
             localStorage.setItem("token",res.data.Token)
             setAuth(true)
@@ -20,7 +20,7 @@ export default function Login() {
     }
 
     const handleLogout = (e)=>{
-        axios.get("http://localhost:8080/user/logout").then((res)=>{
+        axios.get("https://notesapi-ng85.onrender.com/user/logout").then((res)=>{
             console.log(res);
             setAuth(false)
         }).catch((err)=>{
@@ -39,7 +39,7 @@ export default function Login() {
                 Authorization: authToken
             }
         }
-        axios.get("http://localhost:8080/notes/",config).then((res)=>{
+        axios.get("https://notesapi-ng85.onrender.com/notes/",config).then((res)=>{
             console.log(res.data)
         }).catch(err=>{
             console.log(err)
